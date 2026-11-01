@@ -1,0 +1,946 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <title>EzAssign Blog – Study Abroad Guides for International Students</title>
+    <meta name="description" content="EzAssign Blog: UK intakes, universities, visas, jobs, scholarships and student life guides for international students.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        :root {
+            --bg: #ffffff;
+            --fg: #0a0a0c;
+            --mut: #64748b;
+            --ln: #e2e8f0;
+            --cd: #f8fafc;
+            --bk: #0f172a;
+            --or: #ff6a1a;
+            --or-hover: #e55609;
+            --pill-bg: rgba(255, 255, 255, 0.9);
+            --glass-border: rgba(226, 232, 240, 0.9);
+            --card-shadow: 0 10px 30px -10px rgba(0,0,0,0.06);
+            --card-shadow-hover: 0 20px 40px -15px rgba(0,0,0,0.12);
+            color-scheme: light;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root:not([data-theme="light"]) {
+                --bg: #090d16;
+                --fg: #f8fafc;
+                --mut: #94a3b8;
+                --ln: #1e293b;
+                --cd: #0f172a;
+                --bk: #020617;
+                --or: #ff7a30;
+                --or-hover: #ff6a1a;
+                --pill-bg: rgba(15, 23, 42, 0.9);
+                --glass-border: rgba(30, 41, 59, 0.9);
+                --card-shadow: 0 10px 30px -10px rgba(0,0,0,0.3);
+                --card-shadow-hover: 0 20px 40px -15px rgba(0,0,0,0.5);
+                color-scheme: dark;
+            }
+        }
+
+        :root[data-theme="dark"] {
+            --bg: #090d16;
+            --fg: #f8fafc;
+            --mut: #94a3b8;
+            --ln: #1e293b;
+            --cd: #0f172a;
+            --bk: #020617;
+            --or: #ff7a30;
+            --or-hover: #ff6a1a;
+            --pill-bg: rgba(15, 23, 42, 0.9);
+            --glass-border: rgba(30, 41, 59, 0.9);
+            --card-shadow: 0 10px 30px -10px rgba(0,0,0,0.3);
+            --card-shadow-hover: 0 20px 40px -15px rgba(0,0,0,0.5);
+            color-scheme: dark;
+        }
+
+        * { box-sizing: border-box; }
+        html { scroll-padding-top: 100px; scroll-behavior: smooth; }
+        body {
+            margin: 0;
+            background: var(--bg);
+            color: var(--fg);
+            font-family: 'Plus Jakarta Sans', 'Inter', system-ui, -apple-system, sans-serif;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        a { color: inherit; text-decoration: none; }
+        button, input, select, textarea { font: inherit; color: inherit; }
+
+        header { position: sticky; top: 12px; z-index: 40; padding: 0 16px; }
+        .pill {
+            position: relative;
+            max-width: 1180px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 8px 12px 8px 24px;
+            border-radius: 999px;
+            border: 1px solid var(--glass-border);
+            background: var(--pill-bg);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            box-shadow: 0 10px 25px -5px rgba(0,0,0,0.08);
+        }
+        .brand { color: var(--or); font-weight: 800; font-size: 22px; letter-spacing: -.04em; display: flex; align-items: center; gap: 4px; cursor: pointer; }
+        .bl {
+            background: linear-gradient(135deg, var(--or), #ff9e66);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 700;
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            margin-left: 2px;
+        }
+        .links { position: absolute; left: 50%; transform: translateX(-50%); display: flex; gap: 4px; }
+        .links a {
+            padding: 8px 18px;
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--mut);
+            border-radius: 99px;
+            transition: all 0.2s ease;
+            cursor: pointer;
+        }
+        .links a:hover { color: var(--fg); background: rgba(150,150,150,0.08); }
+        .sp { flex: 1; }
+
+        .btn {
+            border: 1px solid var(--ln);
+            background: transparent;
+            color: var(--fg);
+            border-radius: 99px;
+            padding: 9px 20px;
+            font-weight: 600;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+        }
+        .btn:hover { background: var(--cd); border-color: var(--mut); }
+        .btn.k { background: var(--fg); color: var(--bg); border-color: var(--fg); }
+        .btn.k:hover { opacity: 0.9; transform: translateY(-1px); }
+        .btn.or { background: var(--or); color: #ffffff; border: none; outline: none; font-weight: 700; }
+        .btn.or:hover { background: var(--or-hover); transform: translateY(-1px); }
+        .btn.sm { padding: 6px 14px; font-size: 13px; }
+        .btn.wide { width: 100%; padding: 12px; }
+        .mb { display: none; }
+
+        #mm { max-width: 1180px; margin: 8px auto 0; display: grid; position: relative; z-index: 39; }
+        #mm:empty { display: none; }
+        .mp {
+            background: var(--bg);
+            border: 1px solid var(--ln);
+            border-radius: 24px;
+            padding: 12px;
+            width: min(280px, 100%);
+            justify-self: end;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+            animation: slideDown 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        @keyframes slideDown {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .mp a { display: block; padding: 10px 16px; border-radius: 14px; cursor: pointer; font-weight: 600; font-size: 14px; color: var(--fg); }
+        .mp a:hover { background: var(--cd); }
+
+        .hero { text-align: center; padding: 70px 18px 20px; overflow: hidden; position: relative; }
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--cd);
+            border: 1px solid var(--ln);
+            color: var(--fg);
+            padding: 6px 18px;
+            border-radius: 99px;
+            font-size: 13px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        .badge:hover { border-color: var(--or); transform: scale(1.02); }
+        .badge .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--or); display: inline-block; animation: pulse 2s infinite; }
+        @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
+
+        .hero h1 {
+            font-size: clamp(40px, 7.5vw, 84px);
+            line-height: 1.02;
+            letter-spacing: -.04em;
+            font-weight: 800;
+            margin: 24px auto 18px;
+            max-width: 16ch;
+            background: linear-gradient(180deg, var(--fg) 0%, var(--mut) 140%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .hero p { color: var(--mut); font-size: clamp(16px, 2vw, 20px); max-width: 54ch; margin: 0 auto 28px; font-weight: 400; line-height: 1.5; }
+
+        .arc-wrap { max-width: 1180px; margin: 40px auto 0; padding: 0 20px; position: relative; }
+        .arc { display: flex; gap: 16px; overflow-x: auto; scroll-snap-type: x mandatory; scroll-behavior: smooth; padding: 20px 4px 30px; -webkit-overflow-scrolling: touch; }
+        .arc::-webkit-scrollbar { height: 8px; }
+        .arc::-webkit-scrollbar-thumb { background: var(--ln); border-radius: 99px; }
+        .ac {
+            min-width: 240px;
+            width: 240px;
+            height: 300px;
+            flex: none;
+            scroll-snap-align: start;
+            border-radius: 24px;
+            color: #fff;
+            padding: 22px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            text-align: left;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.25);
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+        .ac::before { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.85) 100%); z-index: 1; }
+        .ac > * { position: relative; z-index: 2; }
+        .ac:hover { transform: translateY(-8px); box-shadow: 0 25px 50px rgba(0,0,0,0.4); border-color: var(--or); }
+        .ac em { font-style: normal; font-size: 10px; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; background: rgba(0,0,0,0.5); padding: 4px 8px; border-radius: 8px; width: fit-content; backdrop-filter: blur(4px); }
+        .ac b { font-size: 16px; line-height: 1.25; letter-spacing: -.02em; font-weight: 700; }
+
+        .sec { max-width: 1180px; margin: 0 auto; padding: 64px 20px; }
+        .big { font-size: clamp(32px, 4.5vw, 56px); letter-spacing: -.04em; line-height: 1.08; font-weight: 800; margin: 0 0 24px; max-width: 22ch; }
+        .big i { font-style: normal; color: var(--mut); font-weight: 400; }
+        .lbl { font-size: 12px; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; color: var(--or); margin-bottom: 8px; }
+
+        .bar { display: flex; gap: 12px; flex-wrap: wrap; align-items: center; margin-bottom: 24px; }
+        .bar h2 { margin: 0; flex: 1; min-width: 180px; font-size: 32px; letter-spacing: -.04em; font-weight: 800; }
+        .in { width: 100%; border-radius: 16px; border: 1px solid var(--ln); background: var(--cd); color: var(--fg); padding: 12px 16px; margin-bottom: 12px; outline: none; transition: border-color 0.2s ease; }
+        .in:focus { border-color: var(--or); }
+        .bar .in { width: auto; min-width: 240px; margin: 0; border-radius: 99px; }
+
+        .chips { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 24px; }
+        .chip { border: 1px solid var(--ln); background: transparent; color: var(--mut); border-radius: 99px; padding: 8px 18px; cursor: pointer; font-weight: 600; font-size: 14px; transition: all 0.2s ease; }
+        .chip:hover { color: var(--fg); background: var(--cd); }
+        .chip.on { background: var(--fg); color: var(--bg); border-color: var(--fg); }
+
+        .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+        .card {
+            border: 1px solid var(--ln);
+            border-radius: 28px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            background: var(--bg);
+            box-shadow: var(--card-shadow);
+            display: flex;
+            flex-direction: column;
+        }
+        .card:hover { transform: translateY(-6px); box-shadow: var(--card-shadow-hover); border-color: var(--mut); }
+        .cv { height: 180px; padding: 20px; color: #fff; display: flex; justify-content: space-between; align-items: flex-end; position: relative; overflow: hidden; background-size: cover; background-position: center; }
+        .cv::before { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.7) 100%); }
+        .cv > * { position: relative; z-index: 2; }
+        .cv span { font-size: 64px; font-weight: 800; letter-spacing: -.06em; line-height: .9; opacity: .35; }
+        .cv em { font-style: normal; font-size: 11px; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; opacity: .95; background: rgba(0,0,0,0.5); padding: 4px 10px; border-radius: 8px; backdrop-filter: blur(4px); }
+        .cb { padding: 22px; display: flex; flex-direction: column; flex: 1; }
+        .cb h3 { margin: 8px 0; font-size: 20px; line-height: 1.3; letter-spacing: -.03em; font-weight: 700; }
+        .cb p { margin: 0 0 16px; color: var(--mut); font-size: 14.5px; line-height: 1.55; flex: 1; }
+        .cat { font-size: 11px; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; color: var(--or); }
+        .row { display: flex; justify-content: space-between; align-items: center; gap: 8px; }
+        .meta { font-size: 13px; color: var(--mut); font-weight: 500; }
+
+        .integrations-sec { text-align: center; padding: 70px 20px; background: var(--cd); border-top: 1px solid var(--ln); border-bottom: 1px solid var(--ln); }
+        .apps-container { display: flex; justify-content: center; align-items: center; gap: 18px; flex-wrap: wrap; max-width: 960px; margin: 36px auto 10px; }
+        .app-card {
+            width: 84px;
+            height: 84px;
+            border-radius: 24px;
+            background: var(--bg);
+            border: 1px solid var(--ln);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 12px 24px -6px rgba(0,0,0,0.08);
+            transition: all 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            cursor: pointer;
+            text-decoration: none;
+        }
+        .app-card:hover { transform: translateY(-10px) scale(1.12); box-shadow: 0 20px 35px -8px rgba(0,0,0,0.18); border-color: var(--or); }
+        .app-card i { font-size: 32px; color: var(--fg); }
+        .app-card:hover i { color: var(--or); }
+
+        details { border-bottom: 1px solid var(--ln); transition: all 0.2s ease; }
+        details summary { list-style: none; padding: 22px 0; font-size: 20px; font-weight: 700; letter-spacing: -.02em; cursor: pointer; display: flex; justify-content: space-between; align-items: center; }
+        details summary::-webkit-details-marker { display: none; }
+        details summary::after { content: "+"; color: var(--or); font-size: 24px; font-weight: 400; }
+        details[open] summary::after { content: "–"; }
+        details p { color: var(--mut); margin: 0 0 24px; max-width: 72ch; font-size: 16px; line-height: 1.6; }
+
+        .pub-banner { max-width: 1180px; margin: 60px auto 0; padding: 0 20px; }
+        .pub-card { background: #111827; color: #fff; border-radius: 36px; padding: 60px 40px; text-align: center; position: relative; overflow: hidden; box-shadow: 0 25px 50px rgba(0,0,0,0.3); }
+        .pub-card h2 { font-size: clamp(28px, 4vw, 48px); font-weight: 800; letter-spacing: -.03em; margin: 12px 0 16px; }
+        .pub-card p { color: #94a3b8; font-size: 16px; max-width: 54ch; margin: 0 auto 30px; }
+
+        footer { background: #151517; color: #fff; margin-top: 60px; border-radius: 44px 44px 0 0; padding: 60px 0 32px; border-top: 1px solid #26262a; }
+        .fg { max-width: 1180px; margin: 0 auto; padding: 0 20px; display: grid; grid-template-columns: 1.5fr repeat(4, 1fr); gap: 32px; }
+        .fg h4 { margin: 0 0 14px; font-size: 14px; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; color: #94a3b8; }
+        .fg a { display: block; color: #cbd5e1; font-size: 14.5px; padding: 4px 0; cursor: pointer; transition: color 0.2s ease; }
+        .fg a:hover { color: var(--or); }
+        .fg p { color: #94a3b8; font-size: 14px; margin: 12px 0 0; line-height: 1.6; }
+
+        .social-icons { display: flex; gap: 12px; margin-top: 18px; }
+        .social-btn { display: inline-flex; align-items: center; justify-content: center; width: 38px; height: 38px; border-radius: 50%; background: #26262a; color: #cbd5e1; transition: all 0.2s ease; }
+        .social-btn:hover { background: var(--or); color: #fff; transform: translateY(-2px); }
+        .social-btn i { font-size: 16px; }
+
+        .fb { max-width: 1180px; margin: 40px auto 0; padding: 24px 20px 0; border-top: 1px solid #26262a; color: #64748b; font-size: 13.5px; display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+
+        article.post { max-width: 780px; margin: 30px auto; padding: 0 20px; }
+        .ph { border-radius: 36px; padding: 54px 36px; color: #fff; margin: 16px 0 28px; box-shadow: 0 20px 40px rgba(0,0,0,0.2); background-size: cover; background-position: center; position: relative; }
+        .ph h1 { font-size: clamp(30px, 5vw, 52px); line-height: 1.08; letter-spacing: -.04em; margin: 14px 0; font-weight: 800; }
+
+        dialog { border: 1px solid var(--ln); border-radius: 32px; padding: 32px; width: min(520px, 92vw); background: var(--bg); color: var(--fg); box-shadow: 0 25px 50px -12px rgba(0,0,0,0.25); }
+        dialog::backdrop { background: rgba(0,0,0,0.7); backdrop-filter: blur(4px); }
+        dialog h3 { margin: 0; font-size: 26px; letter-spacing: -.03em; font-weight: 800; }
+        .empty { grid-column: 1/-1; color: var(--mut); text-align: center; padding: 48px; font-size: 18px; font-weight: 500; background: var(--cd); border-radius: 24px; border: 1px dashed var(--ln); }
+
+        .tw table { width: 100%; border-collapse: collapse; margin: 20px 0; font-size: 14.5px; }
+        .tw th, .tw td { border: 1px solid var(--ln); padding: 12px 16px; text-align: left; }
+        .tw th { background: var(--cd); font-weight: 700; }
+        .call { background: var(--cd); border-left: 4px solid var(--or); padding: 16px 20px; border-radius: 0 16px 16px 0; margin: 24px 0; }
+        .post-body h2 { font-size: 24px; font-weight: 700; margin-top: 36px; margin-bottom: 16px; }
+        .post-body p { margin-bottom: 18px; line-height: 1.7; font-size: 16px; }
+        .post-body img { max-width: 100%; border-radius: 16px; margin: 16px 0; }
+        .post-body a { color: var(--or); text-decoration: underline; }
+
+        @media(max-width: 880px) {
+            .links { display: none; }
+            .mb { display: inline-flex; }
+            .bento, .grid { grid-template-columns: 1fr 1fr; }
+            .fg { grid-template-columns: 1fr 1fr; }
+        }
+        @media(max-width: 580px) {
+            .bento, .grid { grid-template-columns: 1fr; }
+            .fg { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <div id="prog"></div>
+    <header>
+        <nav class="pill">
+            <a class="brand" onclick="go('home')">EzAssign <span class="bl">Blog</span></a>
+            <div class="links">
+                <a onclick="toSec('art')">Articles</a>
+                <a onclick="go('uk-jan-2027-intake')">Going abroad in Jan 2027 Intake</a>
+                <a onclick="go('support')">Support</a>
+                <a onclick="toSec('faq')">FAQ</a>
+            </div>
+            <span class="sp"></span>
+            <button class="btn" id="th" title="Toggle Theme">🌓 Mode</button>
+            <button class="btn or sm" onclick="go('support')">Support</button>
+            <button class="btn mb" onclick="menu()">Menu</button>
+        </nav>
+        <div id="mm"></div>
+    </header>
+
+    <main id="app"></main>
+
+    <div class="pub-banner" id="pub-section">
+        <div class="pub-card">
+            <div class="lbl" style="color:var(--or)">Join Our Editorial</div>
+            <h2>Share Your Study Abroad Insights</h2>
+            <p>Got expert advice, student guides, or university tips? Submit your author details, article with photos, links, and text formatting to publish instantly.</p>
+            <button class="btn or" style="padding:14px 28px;font-size:16px" onclick="go('publish')">Publish your Article</button>
+        </div>
+    </div>
+
+    <footer id="ft"></footer>
+    <dialog id="dlg"></dialog>
+
+    <script>
+        const A = [
+            {
+                id: 'uk-jan-2027-intake',
+                cat: 'Admissions',
+                e: '🎓',
+                img: 'https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=800&q=80',
+                t: 'UK January 2027 Intake: Deadlines, Courses & How to Apply',
+                d: 'Everything you need to know about starting a UK degree in January 2027.',
+                dt: '1 Nov 2026',
+                author: 'EzAssign Editorial Team',
+                b: `<p>The January intake is the UK’s second main entry point. It is smaller than September, but it is ideal if you missed the autumn cycle, need extra time for English tests, or want to finish a one-year Master’s by the following winter.</p>
+                <h2>Who can apply?</h2>
+                <p>Mostly postgraduate (taught Master’s) applicants, plus a limited set of undergraduate and foundation programmes. Not every university or course offers a January start, so check each course page carefully.</p>
+                <h2>Typical timeline</h2>
+                <div class="tw"><table><tr><th>When</th><th>What to do</th></tr><tr><td>Now – Nov</td><td>Shortlist courses, book IELTS/PTE/TOEFL, prepare transcripts</td></tr><tr><td>Nov – early Dec</td><td>Submit applications, personal statement, references</td></tr><tr><td>Dec</td><td>Accept offer, pay deposit, receive CAS</td></tr><tr><td>Dec – Jan</td><td>Apply for Student visa, book accommodation, fly in</td></tr></table></div>
+                <h2>Documents checklist</h2>
+                <ul><li>Passport and academic transcripts</li><li>English test score (or an approved waiver)</li><li>Personal statement and CV</li><li>Two references where required</li><li>Proof of funds and, for some courses, ATAS clearance</li></ul>
+                <div class="call"><b>Tip:</b> Many universities close January admissions early once courses fill, so apply as soon as your documents are ready.</div>
+                <h2>Need help with coursework once you arrive?</h2>
+                <p>EzAssign supports students with academic guidance, referencing and study skills so you can start strong.</p>`
+            },
+            {
+                id: 'best-universities-uk',
+                cat: 'Universities',
+                e: '🏛️',
+                img: 'https://images.unsplash.com/photo-1541339907198-e08756dedf3f?auto=format&fit=crop&w=800&q=80',
+                t: 'Best Universities in the UK for International Students',
+                d: 'A practical guide to top UK universities, how rankings work, and how to choose.',
+                dt: '28 Oct 2026',
+                author: 'Dr. Robert Chen',
+                b: `<p>The UK is home to some of the world’s most recognised universities. But the “best” university is the one that fits your subject, budget, career goals and preferred city lifestyle.</p>
+                <h2>Well-known research universities</h2>
+                <ul><li><b>Oxford &amp; Cambridge</b> – collegiate, very competitive, strong across disciplines</li><li><b>Imperial College London</b> – engineering, science, medicine</li><li><b>UCL, King’s College London, LSE</b> – strong in London for law, economics, humanities, health</li><li><b>Edinburgh, Manchester, Warwick, Bristol</b> – high-ranking and popular with international students</li></ul>
+                <h2>How to choose</h2>
+                <ol><li>Check subject-level rankings, not only overall ones</li><li>Compare tuition and living costs by city</li><li>Look at graduate outcomes and employer links</li><li>Check scholarships, placement years and campus support</li></ol>
+                <div class="call"><b>Remember:</b> Rankings use different methods. Use them as a starting point only.</div>`
+            },
+            {
+                id: 'uk-student-visa-guide',
+                cat: 'Visa',
+                e: '🛂',
+                img: 'https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&w=800&q=80',
+                t: 'UK Student Visa Process: Step-by-Step Guide',
+                d: 'From CAS to biometrics, here is the full journey of a UK Student visa application.',
+                dt: '25 Oct 2026',
+                author: 'Immigration Advisory Desk',
+                b: `<p>Most international students need a Student visa to study in the UK for longer than six months. The process is online and usually takes a few weeks, so start early.</p>
+                <h2>Step by step</h2>
+                <ol><li><b>Get an unconditional offer</b> and accept it.</li><li><b>Receive your CAS</b> (Confirmation of Acceptance for Studies) from your university.</li><li><b>Prepare finances</b>: tuition plus living costs held for the required period, in the required format.</li><li><b>Pay the Immigration Health Surcharge</b> as part of the application.</li><li><b>Apply online</b> on <a href="https://www.gov.uk" target="_blank">gov.uk</a> and pay the visa fee.</li><li><b>Biometrics &amp; documents</b> at a visa application centre.</li><li><b>Decision</b>: collect your vignette or eVisa instructions and plan travel.</li></ol>
+                <div class="call"><b>Important:</b> Visa rules, fees and funds requirements are updated regularly.</div>`
+            },
+            {
+                id: 'jobs-in-uk-students',
+                cat: 'Careers',
+                e: '💼',
+                img: 'https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=800&q=80',
+                t: 'Jobs in the UK for International Students: Part-Time to Graduate Route',
+                d: 'Work rules, in-demand sectors and how to build a UK career after graduation.',
+                dt: '20 Oct 2026',
+                author: 'Careers Expert Sarah',
+                b: `<h2>While you study</h2><p>Student visa holders can usually work part-time during term (commonly up to 20 hours a week for degree-level study) and full-time during official holidays.</p>
+                <h2>After graduation</h2>
+                <p>The <b>Graduate Route</b> lets eligible graduates stay and work or look for work after completing a UK degree.</p>
+                <div class="call"><b>Career tip:</b> Visit your university careers service in week one.</div>`
+            },
+            {
+                id: 'cost-of-studying-uk',
+                cat: 'Finance',
+                e: '💷',
+                img: 'https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&w=800&q=80',
+                t: 'Cost of Studying in the UK: Tuition, Living & Savings Tips',
+                d: 'Budget like a pro: tuition ranges, monthly costs and ways to spend less.',
+                dt: '15 Oct 2026',
+                author: 'Finance Team',
+                b: `<h2>Main cost areas</h2><div class="tw"><table><tr><th>Item</th><th>What to expect</th></tr><tr><td>Tuition</td><td>Varies widely by course and university</td></tr><tr><td>Accommodation</td><td>Usually the biggest expense; London costs the most</td></tr></table></div>`
+            },
+            {
+                id: 'ielts-pte-prep',
+                cat: 'Student Life',
+                e: '📚',
+                img: 'https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&w=800&q=80',
+                t: 'IELTS vs PTE vs TOEFL: Which English Test Should You Take?',
+                d: 'Compare the formats and pick the test that suits your strengths.',
+                dt: '10 Oct 2026',
+                author: 'Language Prep Desk',
+                b: `<p>Most UK universities accept several English tests. Your choice should depend on your strengths and test-centre availability.</p>`
+            }
+        ];
+
+        const $= s => document.querySelector(s), app = $('#app');
+        const st = {
+            g(k, d) { try { const v = localStorage.getItem(k); return v == null ? d : JSON.parse(v); } catch (e) { return d; } },
+            s(k, v) { try { localStorage.setItem(k, JSON.stringify(v)); } catch (e) {} }
+        };
+        const esc = s => String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+
+        // Merge custom saved posts
+        const customPosts = st.g('ez_custom_posts', []);
+        const allPosts = [...customPosts, ...A];
+
+        let state = { q: '', cat: 'All', page: 'home', slug: null };
+
+        function initFooter() {
+            $('#ft').innerHTML = `
+                <div class="fg">
+                    <div>
+                        <a class="brand" onclick="go('home')" style="font-size:24px">EzAssign <span class="bl">Blog</span></a>
+                        <p>Empowering international students worldwide with trusted advice on UK intakes, universities, student visas, part-time jobs, and academic success.</p>
+                        <div class="social-icons">
+                            <a class="social-btn" href="#" aria-label="Twitter"><i class="fa-brands fa-twitter"></i></a>
+                            <a class="social-btn" href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                            <a class="social-btn" href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                            <a class="social-btn" href="#" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+                        </div>
+                    </div>
+                    <div>
+                        <h4>Guides</h4>
+                        <a onclick="go('uk-jan-2027-intake')">Jan 2027 Intake</a>
+                        <a onclick="go('best-universities-uk')">Top Universities</a>
+                        <a onclick="go('uk-student-visa-guide')">Visa Checklist</a>
+                        <a onclick="go('jobs-in-uk-students')">Graduate Route</a>
+                    </div>
+                    <div>
+                        <h4>Resources</h4>
+                        <a onclick="go('cost-of-studying-uk')">Cost Calculator</a>
+                        <a onclick="go('ielts-pte-prep')">English Tests</a>
+                        <a onclick="go('support')">Student Support</a>
+                        <a onclick="go('publish')">Write for Us</a>
+                    </div>
+                    <div>
+                        <h4>Company</h4>
+                        <a onclick="go('home')">About EzAssign</a>
+                        <a onclick="go('support')">Contact Us</a>
+                        <a onclick="go('privacy')">Privacy Policy</a>
+                        <a onclick="go('terms')">Terms of Service</a>
+                    </div>
+                    <div>
+                        <h4>Newsletter</h4>
+                        <p>Get weekly updates on scholarships, visa rules &amp; deadlines.</p>
+                        <div style="margin-top:14px;display:flex;gap:6px">
+                            <input type="email" placeholder="Your email" id="nl-email" class="in" style="margin:0;font-size:13px;padding:10px 14px">
+                            <button class="btn or sm" onclick="subNl()">Join</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="fb">
+                    <div>&copy; 2026 EzAssign Blog. All rights reserved.</div>
+                    <div style="display:flex;gap:20px">
+                        <a onclick="go('privacy')">Privacy</a>
+                        <a onclick="go('terms')">Terms</a>
+                        <a onclick="go('support')">Support</a>
+                    </div>
+                </div>
+            `;
+        }
+
+        function subNl() {
+            const val = $('#nl-email').value.trim();
+            if(!val || !val.includes('@')) { alertMsg('Please enter a valid email address.'); return; }
+            alertMsg('Thank you for subscribing to EzAssign updates!');
+            $('#nl-email').value = '';
+        }
+
+        function alertMsg(msg) {
+            const d = $('#dlg');
+            d.innerHTML = `<h3>Notice</h3><p style="margin:16px 0;color:var(--mut)">${esc(msg)}</p><button class="btn or wide" onclick="document.getElementById('dlg').close()">OK</button>`;
+            d.showModal();
+        }
+
+        function render() {
+            $('#mm').innerHTML = '';
+            const p = state.page;
+            
+            // Hide bottom banner when on publish page
+            const pubSec = $('#pub-section');
+            if(pubSec) pubSec.style.display = p === 'publish' ? 'none' : 'block';
+
+            if(p === 'home') {
+                app.innerHTML = `
+                    <section class="hero">
+                        <div class="badge" onclick="go('uk-jan-2027-intake')">
+                            <span class="dot"></span>
+                            <span>January 2027 Intake Guide Now Live</span>
+                            <i class="fa-solid fa-arrow-right" style="font-size:11px;color:var(--or)"></i>
+                        </div>
+                        <h1>Study Abroad Guides for Ambitious Students</h1>
+                        <p>Expert insights on UK admissions, top universities, visa success, graduate jobs, and student living to fuel your global education journey.</p>
+                        <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
+                            <button class="btn or" style="padding:14px 28px;font-size:15px" onclick="toSec('art')">Explore Articles <i class="fa-solid fa-arrow-down"></i></button>
+                            <button class="btn" style="padding:14px 28px;font-size:15px" onclick="go('support')">Get Expert Support</button>
+                        </div>
+                    </section>
+
+                    <div class="arc-wrap">
+                        <div class="arc">
+                            ${allPosts.slice(0,5).map(x => `
+                                <div class="ac" style="background-image:url('${x.img}')" onclick="go('${x.id}')">
+                                    <em>${esc(x.cat)}</em>
+                                    <b>${esc(x.t)}</b>
+                                </div>
+                            `).join('')}
+                        </div>
+                    </div>
+
+                    <section class="sec" id="art">
+                        <div class="bar">
+                            <h2>Latest Guides</h2>
+                            <input type="text" class="in" id="search-box" placeholder="Search guides..." value="${esc(state.q)}" oninput="onSearch(this.value)">
+                        </div>
+                        <div class="chips">
+                            ${['All', 'Admissions', 'Universities', 'Visa', 'Careers', 'Finance', 'Student Life'].map(c => `
+                                <button class="chip ${state.cat === c ? 'on' : ''}" onclick="setCat('${c}')">${c}</button>
+                            `).join('')}
+                        </div>
+                        <div class="grid" id="posts-grid">
+                            ${renderGrid()}
+                        </div>
+                    </section>
+
+                    <section class="integrations-sec">
+                        <div class="lbl">Trusted Platforms</div>
+                        <h2 style="font-size:32px;font-weight:800;letter-spacing:-.03em;margin:0 0 10px">Tools &amp; Services for Students</h2>
+                        <p style="color:var(--mut);max-width:50ch;margin:0 auto">Connect with top student financial services, accommodation providers, test prep platforms and career networks.</p>
+                        <div class="apps-container">
+                            <a class="app-card" href="https://www.gov.uk/student-visa" target="_blank" title="Gov.uk Visa"><i class="fa-solid fa-passport"></i></a>
+                            <a class="app-card" href="https://www.ucas.com" target="_blank" title="UCAS Admissions"><i class="fa-solid fa-graduation-cap"></i></a>
+                            <a class="app-card" href="https://www.britishcouncil.org" target="_blank" title="British Council"><i class="fa-solid fa-globe"></i></a>
+                            <a class="app-card" href="https://www.ielts.org" target="_blank" title="IELTS"><i class="fa-solid fa-book-open"></i></a>
+                            <a class="app-card" href="https://www.unidays.com" target="_blank" title="UNiDAYS"><i class="fa-solid fa-tags"></i></a>
+                            <a class="app-card" href="https://www.studentbeans.com" target="_blank" title="Student Beans"><i class="fa-solid fa-percent"></i></a>
+                        </div>
+                    </section>
+
+                    <section class="sec" id="faq">
+                        <div class="lbl">FAQ</div>
+                        <h2 class="big">Frequently Asked <i>Questions</i></h2>
+                        <div style="margin-top:32px">
+                            <details><summary>1. What is EzAssign and who leads it?</summary><p>EzAssign is a premier global educational services provider and study-abroad consultancy founded by international education veterans and academic experts.</p></details>
+                            <details><summary>2. How does EzAssign help international students with coursework?</summary><p>EzAssign provides comprehensive academic guidance, study skills workshops, reference structuring, and module research assistance.</p></details>
+                            <details><summary>3. Is EzAssign trustable?</summary><p>Yes, absolutely. EzAssign is an ISO-certified, legally registered educational services provider with verified corporate presence.</p></details>
+                            <details><summary>4. What are the primary study-abroad destinations supported?</summary><p>We specialize in the UK, Canada, Australia, Ireland, and select European Union nations.</p></details>
+                            <details><summary>5. How do I connect with peer-to-peer student communities for UK universities?</summary><p>We host active student community channels and orientation groups for major institutions like BPP, Westminster, East London, and Russell Group universities.</p></details>
+                            <details><summary>6. What academic referencing styles does EzAssign specialize in?</summary><p>APA (7th), Harvard, OSCOLA, IEEE, MLA, and Chicago styles.</p></details>
+                            <details><summary>7. How does the January 2027 intake application process work?</summary><p>Our roadmap includes profile evaluation, university shortlisting, fast-tracked applications, IELTS prep, CAS issuance, and student visa support.</p></details>
+                            <details><summary>8. What is the turnaround time for academic guidance?</summary><p>Standard turnaround is 24 to 48 hours with express options available.</p></details>
+                            <details><summary>9. How can I publish my own student insights?</summary><p>You can use our interactive "Publish your Article" studio page directly on the website.</p></details>
+                            <details><summary>10. How do I book a consultation or request a callback?</summary><p>Click the Support button in the header or use our support form to request an instant callback.</p></details>
+                            <details><summary>11. What are the payment options and security measures?</summary><p>Secure payments via UPI, cards, and wire transfers backed by 256-bit SSL encryption.</p></details>
+                        </div>
+                    </section>
+                `;
+            } else if(p === 'publish') {
+                app.innerHTML = `
+                    <div class="sec" style="max-width:780px">
+                        <button class="btn sm" style="margin-bottom:16px" onclick="go('home')"><i class="fa-solid fa-arrow-left"></i> Back to Home</button>
+                        <div class="lbl">Editorial Studio</div>
+                        <h1 class="big">Publish Your Article</h1>
+                        <p style="color:var(--mut);margin-bottom:32px">Fill out your author credentials and article content below. Your article will be published instantly on top of the EzAssign Blog.</p>
+                        
+                        <div id="pub-er" style="color:#ef4444;font-weight:600;margin-bottom:16px"></div>
+
+                        <div class="card" style="padding:32px;background:var(--cd);display:flex;flex-direction:column;gap:20px">
+                            <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
+                                <div>
+                                    <label style="font-size:13px;font-weight:700;display:block;margin-bottom:6px">Author Name *</label>
+                                    <input type="text" id="p-author" class="in" placeholder="Jane Smith" style="margin:0">
+                                </div>
+                                <div>
+                                    <label style="font-size:13px;font-weight:700;display:block;margin-bottom:6px">Phone Number *</label>
+                                    <input type="text" id="p-phone" class="in" placeholder="+44 20 7946 0912" style="margin:0">
+                                </div>
+                            </div>
+
+                            <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
+                                <div>
+                                    <label style="font-size:13px;font-weight:700;display:block;margin-bottom:6px">Email Address *</label>
+                                    <input type="email" id="p-email" class="in" placeholder="jane@example.com" style="margin:0">
+                                </div>
+                                <div>
+                                    <label style="font-size:13px;font-weight:700;display:block;margin-bottom:6px">Category *</label>
+                                    <select id="p-cat" class="in" style="margin:0">
+                                        <option>Admissions</option>
+                                        <option>Universities</option>
+                                        <option>Visa</option>
+                                        <option>Careers</option>
+                                        <option>Finance</option>
+                                        <option>Student Life</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div>
+                                <label style="font-size:13px;font-weight:700;display:block;margin-bottom:6px">Article Title *</label>
+                                <input type="text" id="p-title" class="in" placeholder="My Guide to Studying in London" style="margin:0">
+                            </div>
+
+                            <div>
+                                <label style="font-size:13px;font-weight:700;display:block;margin-bottom:6px">Banner Image URL *</label>
+                                <input type="text" id="p-img" class="in" placeholder="https://images.unsplash.com/photo-..." style="margin:0">
+                                <small style="color:var(--mut);font-size:12px">Provide an Unsplash or direct image URL for your header banner.</small>
+                            </div>
+
+                            <div>
+                                <label style="font-size:13px;font-weight:700;display:block;margin-bottom:6px">Article Content / Text File [Markdown &amp; HTML supported] *</label>
+                                <div style="display:flex;gap:8px;margin-bottom:8px">
+                                    <button class="btn sm" type="button" onclick="insertTag('&lt;h2&gt;', '&lt;/h2&gt;')"><i class="fa-solid fa-heading"></i> Heading</button>
+                                    <button class="btn sm" type="button" onclick="insertTag('&lt;p&gt;', '&lt;/p&gt;')"><i class="fa-solid fa-paragraph"></i> Paragraph</button>
+                                    <button class="btn sm" type="button" onclick="insertImagePrompt()"><i class="fa-solid fa-image"></i> Add Photo</button>
+                                    <button class="btn sm" type="button" onclick="insertLinkPrompt()"><i class="fa-solid fa-link"></i> Add Link</button>
+                                </div>
+                                <textarea id="p-body" class="in" rows="10" placeholder="Write your article paragraphs here or upload text..." style="margin:0;font-family:inherit"></textarea>
+                            </div>
+
+                            <div style="display:flex;gap:12px;margin-top:10px">
+                                <button class="btn" style="flex:1" onclick="go('home')">Cancel</button>
+                                <button class="btn or" style="flex:1" onclick="submitPublishedArticle()">Publish on Top</button>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            } else if(p === 'post') {
+                const post = allPosts.find(x => x.id === state.slug);
+                if(!post) {
+                    app.innerHTML = `<div class="sec" style="text-align:center"><h2>Article not found</h2><button class="btn or" style="margin-top:16px" onclick="go('home')">Back to Home</button></div>`;
+                    return;
+                }
+                app.innerHTML = `
+                    <article class="post">
+                        <button class="btn sm" style="margin-bottom:16px" onclick="go('home')"><i class="fa-solid fa-arrow-left"></i> Back to Guides</button>
+                        <div class="ph" style="background-image:linear-gradient(180deg, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.85) 100%), url('${post.img}')">
+                            <span class="cat" style="background:rgba(0,0,0,0.6);padding:6px 12px;border-radius:8px;color:#fff">${esc(post.cat)}</span>
+                            <h1>${esc(post.t)}</h1>
+                            <div class="meta" style="color:#cbd5e1;margin-top:12px"><i class="fa-solid fa-user-pen"></i> By ${esc(post.author || 'EzAssign Editorial')} &bull; <i class="fa-regular fa-calendar"></i> ${esc(post.dt)}</div>
+                        </div>
+                        <div class="post-body">
+                            ${post.b}
+                        </div>
+                        <div style="margin-top:50px;padding-top:24px;border-top:1px solid var(--ln);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px">
+                            <div>
+                                <h4 style="margin:0 0 4px;font-size:18px">Found this helpful?</h4>
+                                <p style="margin:0;color:var(--mut);font-size:14px">Share this guide with fellow study abroad aspirants.</p>
+                            </div>
+                            <div style="display:flex;gap:8px">
+                                <button class="btn" onclick="alertMsg('Link copied to clipboard!')"><i class="fa-solid fa-share-nodes"></i> Share</button>
+                                <button class="btn or" onclick="go('support')">Get Assistance</button>
+                            </div>
+                        </div>
+                    </article>
+                `;
+            } else if(p === 'support') {
+                app.innerHTML = `
+                    <div class="sec" style="max-width:960px">
+                        <button class="btn sm" style="margin-bottom:16px" onclick="go('home')"><i class="fa-solid fa-arrow-left"></i> Back to Home</button>
+                        <div class="lbl">Get In Touch</div>
+                        <h1 class="big">Student Support &amp; Enquiries</h1>
+                        <p style="color:var(--mut);margin-bottom:32px">Have questions about UK universities, visa documents, or academic guidance? Fill out the form below or reach our global branches in Jaipur, London, Sydney, or Dubai.</p>
+                        
+                        <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-bottom:32px">
+                            <div class="card" style="padding:24px;background:var(--cd)">
+                                <h3 style="font-size:18px;margin-top:0"><i class="fa-solid fa-building-columns" style="color:var(--or)"></i> Global Headquarters</h3>
+                                <p style="font-size:14px;color:var(--mut);margin:8px 0"><b>Jaipur, India:</b> Main Education Campus &amp; Advisory Center</p>
+                                <p style="font-size:14px;color:var(--mut);margin:8px 0"><b>Branches:</b> London (UK) | Sydney (AU) | Dubai (UAE)</p>
+                                <p style="font-size:14px;color:var(--mut);margin:8px 0"><b>Email:</b> ezassignglobal@gmail.com</p>
+                            </div>
+                            <div class="card" style="padding:24px;background:var(--cd);display:flex;flex-direction:column;justify-content:center">
+                                <h3 style="font-size:18px;margin-top:0"><i class="fa-brands fa-whatsapp" style="color:#22c55e"></i> Instant Connect</h3>
+                                <p style="font-size:14px;color:var(--mut);margin:8px 0">Need an immediate callback or quick guidance?</p>
+                                <button class="btn" style="background:#22c55e;color:#fff;border:none;margin-top:10px" onclick="alertMsg('Connecting to EzAssign WhatsApp Support (+91 9876543210)...')"><i class="fa-brands fa-whatsapp"></i> Chat on WhatsApp</button>
+                            </div>
+                        </div>
+
+                        <div class="card" style="padding:32px;background:var(--cd)">
+                            <h3 style="font-size:20px;margin-top:0;margin-bottom:16px">Request Counselor Callback</h3>
+                            <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
+                                <div><label style="font-size:13px;font-weight:700;display:block;margin-bottom:6px">Your Name</label><input type="text" id="sup-name" class="in" placeholder="John Doe"></div>
+                                <div><label style="font-size:13px;font-weight:700;display:block;margin-bottom:6px">Email Address</label><input type="email" id="sup-email" class="in" placeholder="john@example.com"></div>
+                            </div>
+                            <div style="margin-top:16px">
+                                <label style="font-size:13px;font-weight:700;display:block;margin-bottom:6px">Subject / Inquiry Type</label>
+                                <select id="sup-subj" class="in">
+                                    <option>UK January 2027 Admissions</option>
+                                    <option>Visa &amp; Document Guidance</option>
+                                    <option>Academic &amp; Assignment Support</option>
+                                    <option>General Study Abroad Question</option>
+                                </select>
+                            </div>
+                            <div style="margin-top:16px">
+                                <label style="font-size:13px;font-weight:700;display:block;margin-bottom:6px">Message</label>
+                                <textarea id="sup-msg" class="in" rows="5" placeholder="Tell us how we can help you..."></textarea>
+                            </div>
+                            <button class="btn or wide" style="margin-top:20px;padding:14px" onclick="submitSupport()">Send Message</button>
+                        </div>
+                    </div>
+                `;
+            } else if(p === 'privacy') {
+                app.innerHTML = `<article class="post"><button class="btn sm" style="margin-bottom:16px" onclick="go('home')"><i class="fa-solid fa-arrow-left"></i> Back to Home</button><h1>Privacy Policy</h1><p class="meta">Last updated: November 1, 2026</p><div class="post-body" style="margin-top:24px"><p>EzAssign respects your privacy and is committed to protecting your personal data.</p></div></article>`;
+            } else if(p === 'terms') {
+                app.innerHTML = `<article class="post"><button class="btn sm" style="margin-bottom:16px" onclick="go('home')"><i class="fa-solid fa-arrow-left"></i> Back to Home</button><h1>Terms of Service</h1><p class="meta">Last updated: November 1, 2026</p><div class="post-body" style="margin-top:24px"><p>Welcome to EzAssign Blog. By accessing our website, you agree to comply with these terms.</p></div></article>`;
+            }
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function renderGrid() {
+            const filtered = allPosts.filter(x => {
+                const matchCat = state.cat === 'All' || x.cat.toLowerCase() === state.cat.toLowerCase();
+                const matchQ = !state.q || x.t.toLowerCase().includes(state.q.toLowerCase()) || x.d.toLowerCase().includes(state.q.toLowerCase());
+                return matchCat && matchQ;
+            });
+            if(filtered.length === 0) {
+                return `<div class="empty">No guides found matching your search. Try another keyword or category.</div>`;
+            }
+            return filtered.map(x => `
+                <div class="card" onclick="go('${x.id}')">
+                    <div class="cv" style="background-image:url('${x.img}')">
+                        <span>${x.e}</span>
+                        <em>${esc(x.cat)}</em>
+                    </div>
+                    <div class="cb">
+                        <span class="cat">${esc(x.cat)}</span>
+                        <h3>${esc(x.t)}</h3>
+                        <p>${esc(x.d)}</p>
+                        <div class="row">
+                            <span class="meta">${esc(x.dt)}</span>
+                            <span style="font-weight:700;color:var(--or);font-size:14px">Read Guide <i class="fa-solid fa-arrow-right"></i></span>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function go(target, slugParam) {
+            if(allPosts.some(x => x.id === target)) {
+                state.page = 'post';
+                state.slug = target;
+            } else {
+                state.page = target;
+                state.slug = null;
+            }
+            render();
+        }
+
+        function toSec(id) {
+            if(state.page !== 'home') {
+                state.page = 'home';
+                render();
+            }
+            setTimeout(() => {
+                const el = document.getElementById(id);
+                if(el) el.scrollIntoView({ behavior: 'smooth' });
+            }, 50);
+        }
+
+        function setCat(c) {
+            state.cat = c;
+            const grid = $('#posts-grid');
+            if(grid) grid.innerHTML = renderGrid();
+            document.querySelectorAll('.chip').forEach(el => {
+                el.classList.toggle('on', el.textContent.trim() === c);
+            });
+        }
+
+        function onSearch(val) {
+            state.q = val;
+            const grid = $('#posts-grid');
+            if(grid) grid.innerHTML = renderGrid();
+        }
+
+        function menu() {
+            const mm = $('#mm');
+            if(mm.innerHTML) {
+                mm.innerHTML = '';
+            } else {
+                mm.innerHTML = `
+                    <div class="mp">
+                        <a onclick="toSec('art'); $('#mm').innerHTML=''">Articles</a>
+                        <a onclick="go('uk-jan-2027-intake'); $('#mm').innerHTML=''">Jan 2027 Intake Guide</a>
+                        <a onclick="go('support'); $('#mm').innerHTML=''">Support</a>
+                        <a onclick="toSec('faq'); $('#mm').innerHTML=''">FAQ</a>
+                        <a onclick="go('publish'); $('#mm').innerHTML=''">Publish Article</a>
+                    </div>
+                `;
+            }
+        }
+
+        function insertTag(open, close) {
+            const ta = $('#p-body');
+            const start = ta.selectionStart;
+            const end = ta.selectionEnd;
+            const text = ta.value;
+            ta.value = text.substring(0, start) + open + text.substring(start, end) + close + text.substring(end);
+            ta.focus();
+        }
+
+        function insertImagePrompt() {
+            const url = prompt('Enter Image URL:');
+            if(url) {
+                const ta = $('#p-body');
+                ta.value += `\n<img src="${url}" alt="Article Image">\n`;
+            }
+        }
+
+        function insertLinkPrompt() {
+            const text = prompt('Enter link display text:');
+            const url = prompt('Enter target URL:');
+            if(text && url) {
+                const ta = $('#p-body');
+                ta.value += ` <a href="${url}" target="_blank">${text}</a> `;
+            }
+        }
+
+        function submitPublishedArticle() {
+            const author = $('#p-author').value.trim();
+            const phone = $('#p-phone').value.trim();
+            const email = $('#p-email').value.trim();
+            const cat = $('#p-cat').value;
+            const title = $('#p-title').value.trim();
+            const img = $('#p-img').value.trim();
+            const body = $('#p-body').value.trim();
+
+            if(!author || !phone || !email || !title || !img || !body) {
+                $('#pub-er').textContent = 'Please fill in all required fields before publishing.';
+                return;
+            }
+
+            const newPost = {
+                id: 'custom-' + Date.now(),
+                cat: cat,
+                e: '✍️',
+                img: img,
+                t: title,
+                d: body.replace(/<[^>]*>?/gm, '').substring(0, 110) + '...',
+                dt: '1 Nov 2026',
+                author: author,
+                b: `<div class="post-body">${body.replace(/\n/g, '<br>')}</div>`
+            };
+
+            const saved = st.g('ez_custom_posts', []);
+            saved.unshift(newPost);
+            st.s('ez_custom_posts', saved);
+            allPosts.unshift(newPost);
+
+            alertMsg('Your article has been successfully published on TOP of EzAssign Blog!');
+            go('home');
+        }
+
+        function submitSupport() {
+            const name = $('#sup-name').value.trim();
+            const email = $('#sup-email').value.trim();
+            const msg = $('#sup-msg').value.trim();
+            if(!name || !email || !msg) { alertMsg('Please fill out all fields in the support form.'); return; }
+            alertMsg('Thank you! Your enquiry has been submitted. Our advisor will reach out shortly.');
+            $('#sup-name').value = ''; $('#sup-email').value = ''; $('#sup-msg').value = '';
+        }
+
+        // Theme Toggle
+        $('#th').addEventListener('click', () => {
+            const current = document.documentElement.getAttribute('data-theme');
+            const next = current === 'dark' ? 'light' : 'dark';
+            document.documentElement.setAttribute('data-theme', next);
+            st.s('ez_theme', next);
+        });
+
+        const savedTheme = st.g('ez_theme', null);
+        if(savedTheme) document.documentElement.setAttribute('data-theme', savedTheme);
+
+        initFooter();
+        render();
+    </script>
+</body>
+</html>
